@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-beta-svc
+  namespace: assessment
+  annotations:
+    cloud.google.com/backend-config: '{"default": "beta-backendconfig"}'
+  labels:
+    app: app-beta
+spec:
+  selector:
+    app: app-beta
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP    # Internal only; Ingress handles external access

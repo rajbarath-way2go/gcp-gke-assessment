@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-alpha
+  namespace: assessment
+  labels:
+    app: app-alpha
+spec:
+  replicas: 2                       # Multi-pod as required by assessment
+  selector:
+    matchLabels:
+      app: app-alpha
+  template:
+    metadata:
+      labels:
+        app: app-alpha
+        version: "1.0.0"
+    spec:
+      serviceAccountName: app-alpha-sa  # Workload Identity SA (Phase 2)
+      containers:
+        - name: app-alpha
+          # Replace with your Artifact Registry image after Phase 5
+          image: us-central1-docker.pkg.dev/sre-gke-assesment/gee-assessment-repo/app-alpha:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-alpha-config
+                  key: APP_NAME
+            - name: APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: app-alpha-config
+                  key: APP_VERSION
+            - name: ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: app-alpha-config
+                  key: ENV
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: API_KEY
+          # Readiness probe: pod gets traffic only when ready
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          # Liveness probe: restart pod if it becomes unhealthy
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: assessment-ingress
+  namespace: assessment
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "gke-assessment-ip"
+    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /alpha
+        pathType: Prefix
+        backend:
+          service:
+            name: app-alpha-svc
+            port:
+              number: 8080
+      - path: /beta
+        pathType: Prefix
+        backend:
+          service:
+            name: app-beta-svc
+            port:
+              number: 8080
