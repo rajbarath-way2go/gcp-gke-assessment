@@ -1,0 +1,3 @@
+sum(rate(container_cpu_usage_seconds_total{namespace="assessment"}[5m])) by (pod)
+
+sum(container_memory_working_set_bytes{namespace="assessment"}) by (pod)
