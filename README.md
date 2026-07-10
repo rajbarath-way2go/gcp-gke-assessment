@@ -138,7 +138,7 @@ gcp-gke-assessment/
 | `k8s/ingress/ingress.yaml`             | Ingress with path-based routing (/alpha, /beta)           |
 | `k8s/ingress/backendconfig.yaml`       | Custom health check config (path: /health)                |
 | `observability/bigquery/queries/`      | SQL queries for log analysis                 |
-| `observability/Grafana - Monitoring Dashboard.png' | Grafana dashboard                                         |
+| `observability/Grafana - Monitoring Dashboard.png` | Grafana dashboard                                         |
 
 ---
 
