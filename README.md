@@ -124,14 +124,8 @@ gcp-gke-assessment/
 
 | Document | Purpose | Read Time |
 |---|---|---|
-| `docs/ARCHITECTURE.md` | System design blueprint | 10-15 min |
-| `docs/DEPLOYMENT.md` | Step-by-step setup guide | 20-30 min (reference) |
-| `docs/DESIGN_DECISIONS.md` | Architectural rationale (23 decisions) | 15-20 min |
-| `docs/DOCS_README.md` | Documentation navigation guide | 5-10 min |
-| `docs/architecture/architecture.md` | Detailed 7-phase architecture | 20 min |
-| `docs/troubleshooting_log.md` | 4 production issues + solutions | 15 min |
-
-**Start here**: Read `docs/DOCS_README.md` for navigation guidance based on your role.
+| `docs/architecture/ ARCHITECTURE.md` | System design blueprint | 10-15 min |
+| `docs/architecture/DEPLOYMENT.md` | Step-by-step setup guide | 10-15 min (reference) |
 
 ---
 
