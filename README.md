@@ -16,7 +16,7 @@ This assessment demonstrates a **production-ready Google Kubernetes Engine (GKE)
 ✅ **Two Microservices** — Flask apps (app-alpha, app-beta) with 3 replicas each  
 ✅ **Secure Networking** — VPC-native cluster with Cloud NAT (no public IPs)  
 ✅ **Workload Identity** — Pod-to-GCP authentication without downloaded keys  
-✅ **Full Observability** — 3-tier logging + Prometheus metrics + Grafana dashboards  
+✅ **Observability** —  Prometheus metrics + Grafana dashboards  
 ✅ **Real Troubleshooting** — issues documented with solutions  
 
 ---
@@ -26,13 +26,12 @@ This assessment demonstrates a **production-ready Google Kubernetes Engine (GKE)
 | Criterion                                       | Status | Evidence                                                                     |
 | -------------------------------------------------| --------| ------------------------------------------------------------------------------|
 | **Working cluster with accessible endpoints**   | ✅      | `apps/` with Flask apps, `k8s/ingress.yaml` routing to live endpoints        |
-| **Grafana dashboard screenshot/export**         | ✅      | `observability/grafana/dashboard.json` with 6 key metrics panels             |
+| **Grafana dashboard screenshot/export**         | ✅      | `observability/Grafana - Monitoring Dashboard.png` with 6 key metrics panels             |
 | **BigQuery queries demonstrating log analysis** | ✅      | `observability/bigquery/queries/` with production SQL queries                |
 | **Troubleshooting scenario documentation**      | ✅      | `docs/troubleshooting_log.md` with 4 real issues + root causes + resolutions |
 | **Infrastructure as Code**                      | ⚠️      | `terraform/` - Item pending.                                                 |
 | **Architecture diagram & design doc**           | ✅      | `docs/architecture/architecture.md` with 7-phase deployment guide            |
-| **Step-by-step setup instructions**             | ✅      | `terraform/README.md` + `docs/` deployment guide                             |
-| **BigQuery schema & sample queries**            | ✅      | `observability/bigquery/schema.md` + SQL and Promotheus queries              |
+| **BigQuery schema & sample queries**            | ✅      | `observability/bigquery` + SQL and Promotheus queries              |
 | **Design decisions & rationale**                | ✅      | `docs/` with explicit rationale for each architectural choice                |
 
 ---
