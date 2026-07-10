@@ -137,8 +137,8 @@ gcp-gke-assessment/
 | `apps/app-beta/app.py`                 | Flask app #2 (GET /beta/api/process, /api/error, /health) |
 | `k8s/ingress/ingress.yaml`             | Ingress with path-based routing (/alpha, /beta)           |
 | `k8s/ingress/backendconfig.yaml`       | Custom health check config (path: /health)                |
-| `observability/bigquery/queries/`      | 4 production SQL queries for log analysis                 |
-| `observability/grafana/dashboard.jpeg` | Grafana dashboard                                         |
+| `observability/bigquery/queries/`      | SQL queries for log analysis                 |
+| `observability/Grafana - Monitoring Dashboard.png' | Grafana dashboard                                         |
 
 ---
 
